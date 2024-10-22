@@ -1,0 +1,6 @@
+.button {
+  padding: 18px 24px;
+  background: var(--yellow);
+  color: var(--background);
+  border-radius: 999px;
+}
