@@ -1,5 +1,5 @@
 import Image from "next/image";
-import style from "./style.module.css";
+import style from "./style.module.scss";
 import Portfolio from "../svg/Portfolio";
 import Scroll from "../svg/Scroll";
 
@@ -13,7 +13,8 @@ export default function Hero() {
         width={866}
         height={560}
       />
-      <h1 className={style.hero__title}>Abstractions</h1>
+      <h1 className={style.hero__name}>Marcin Michał Marszałek</h1>
+      <h2 className={style.hero__title}>Abstractions</h2>
       <div className={style.hero__portfolio}>
         <Portfolio />
       </div>

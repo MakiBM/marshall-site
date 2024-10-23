@@ -1,0 +1,12 @@
+.button {
+  padding: 18rem 30rem;
+  background: var(--yellow);
+  color: var(--background);
+  font-size: 16rem;
+  border-radius: 999rem;
+
+  @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+}

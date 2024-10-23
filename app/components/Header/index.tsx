@@ -1,7 +1,7 @@
 import Button from "../Button";
 import Logo from "../svg/Logo";
 import Burger from "../svg/Burger";
-import style from "./style.module.css";
+import style from "./style.module.scss";
 
 export default function Header() {
   return (
