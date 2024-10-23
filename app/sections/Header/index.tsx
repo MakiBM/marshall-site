@@ -1,6 +1,6 @@
-import Button from "../Button";
-import Logo from "../svg/Logo";
-import Burger from "../svg/Burger";
+import Button from "@/app/components/Button";
+import Logo from "@/app/components/svg/Logo";
+import Burger from "@/app/components/svg/Burger";
 import style from "./style.module.scss";
 
 export default function Header() {

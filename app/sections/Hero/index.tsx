@@ -1,7 +1,7 @@
 import Image from "next/image";
 import style from "./style.module.scss";
-import Portfolio from "../svg/Portfolio";
-import Scroll from "../svg/Scroll";
+import Portfolio from "@/app/components/svg/Portfolio";
+import Scroll from "@/app/components/svg/Scroll";
 
 export default function Hero() {
   return (
