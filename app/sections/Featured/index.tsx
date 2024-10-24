@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Featured() {
   return (
-    <div className={style.featured}>
+    <section className={style.featured}>
       <Image
         className={`${style.featured__img} ${style.featured__img_1}`}
         src="/img/gallery_1.jpg"
@@ -39,6 +39,6 @@ export default function Featured() {
         <span>Project title line</span><br />
         <a className={style.featured__link}>Details</a>
       </h3>
-    </div>
+    </section>
   );
 }
