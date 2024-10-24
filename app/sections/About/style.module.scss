@@ -1,0 +1,47 @@
+.about {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  width: 100%;
+  max-width: 1728rem;
+  aspect-ratio: 1728/1117;
+  margin: 0 auto;
+
+  &__img {
+    grid-area: 4 / 5 / span 4 / span 8;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    grid-area: 8 / 11 / span 4 / span 6;
+    display: flex;
+    align-items: center;
+    font-size: 72rem;
+    font-family: var(--font-bellefair);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  &__text {
+    grid-area: 12 / 12 / span 3 / span 3;
+    font-size: 16rem;
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+  
+  &__scroll {
+    grid-area: 14 / 3 / span 2 / span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+  }
+  
+  &__scroll svg {
+    width: 82rem;
+    height: 97rem;
+  }
+
+}
