@@ -1,0 +1,60 @@
+.contact {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  width: 100%;
+  max-width: 1728rem;
+  aspect-ratio: 1728/1117;
+  margin: 0 auto;
+
+  &__img {
+    grid-area: 5 / 7 / span 4 / span 4;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    grid-area: 6 / 1 / span 2 / span 16;
+    font-size: 128rem;
+    font-family: var(--font-bellefair);
+    letter-spacing: 0.15em;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  &__text {
+    grid-area: 10 / 7 / span 4 / span 4;
+    font-size: 16rem;
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+
+  &__follow {
+    grid-area: 15 / 2 / span 1 / span 2;
+    display: flex;
+    align-items: center;
+    font-size: 24rem;
+    font-family: var(--font-bellefair);
+    opacity: 0.75;
+    text-transform: uppercase;
+
+    a {
+      padding: 8rem;
+
+      &:first-child {
+        margin-left: 16rem;
+      }
+    }
+  }
+
+  &__links {
+    grid-area: 15 / 13 / span 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    font-size: 24rem;
+    font-family: var(--font-bellefair);
+    opacity: 0.75;
+  }
+}
