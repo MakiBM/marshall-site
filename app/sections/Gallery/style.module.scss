@@ -7,9 +7,12 @@
 
   &__img {
     border: 1px solid var(--foreground);
-    height: auto;
-    width: 100%;
     margin-bottom: 61rem;
+    
+    img {
+      height: auto;
+      width: 100%;
+    }
   }
 
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
