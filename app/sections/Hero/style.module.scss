@@ -9,8 +9,11 @@
   
   &__image {
     grid-area: 5 / 5 / span 8 / span 8;
-    width: 100%;
-    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__name {
@@ -31,25 +34,32 @@
     grid-area: 15 / 2 / span 1 / span 3;
     display: flex;
     align-items: center;
+
+    svg {
+      width: 226rem;
+      height: 24rem;
+    }
   }
   
-  &__portfolio svg {
-    width: 226rem;
-    height: 24rem;
-  }
   
   &__scroll {
     grid-area: 15 / 15 / span 2 / span 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -50%) translateX(-4rem);
+    
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-50%, -50%) translateX(-4rem);
+      width: 100%;
+      height: 100%;
+    }
+
+    svg {
+      width: 82rem;
+      height: 97rem;
+    }
   }
   
-  &__scroll svg {
-    width: 82rem;
-    height: 97rem;
-  }
 
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
     display: flex;
@@ -87,8 +97,11 @@
 
     &__image {
       order: 3;
-      height: auto;
       margin-bottom: auto;
+
+      img {
+        height: auto;
+      }
     }
 
     &__scroll {
