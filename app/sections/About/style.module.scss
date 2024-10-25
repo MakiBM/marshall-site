@@ -43,7 +43,36 @@
     width: 82rem;
     height: 97rem;
   }
-  
+
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 500rem);
+    min-height: calc(100vh - 600rem);
+    padding-top: 300rem;
+    padding-bottom: 300rem;
+
+    &__img {
+      width: calc(100% + 500rem);
+      height: auto;
+      margin-left: -250rem;
+      margin-right: -250rem;
+      margin-top: 400rem;
+    }
+
+    &__title {
+      font-size: 48px;
+      margin-top: 250rem;
+    }
+
+    &__text {
+      font-size: 16px;
+      margin-top: 150rem;
+
+    }
+
+    &__scroll {
+      display: none;
+    }
   }
 }
