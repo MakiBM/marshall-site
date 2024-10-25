@@ -43,5 +43,7 @@
     width: 82rem;
     height: 97rem;
   }
-
+  
+  @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+  }
 }

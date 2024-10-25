@@ -57,4 +57,44 @@
     font-family: var(--font-bellefair);
     opacity: 0.75;
   }
+
+  @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 500rem);
+    min-height: calc(100vh - 600rem);
+    padding-top: 300rem;
+    padding-bottom: 300rem;
+
+    &__img {
+      transform: translateY(50%) translateY(100rem);
+      position: relative;
+      z-index: -1;
+      height: auto;
+    }
+    
+    &__title {
+      margin-bottom: 400rem;
+      font-size: 250rem;
+      align-self: center;
+    }
+
+    &__text {
+      margin-bottom: 150rem;
+      font-size: 16px;
+    }
+
+    &__follow {
+      margin-top: 150rem;
+      order: 5;
+      font-size: 20px;
+      
+      a { padding: 8px; }
+    }
+
+    &__links {
+      margin-top: 150rem;
+      font-size: 20px;
+    }
+  }
 }
