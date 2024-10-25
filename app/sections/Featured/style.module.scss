@@ -37,4 +37,30 @@
 
   &__img_3 { grid-area: 21 / 3 / span 8 / span 10; }
   &__title_3 { grid-area: 23 / 14 / span 3 / span 3; }
+
+  @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 500rem);
+
+    &__img {
+      height: auto;
+      margin-top: 92px;
+    }
+
+    &__title {
+      margin-top: 52px;
+    }
+
+    &__title span {
+      font-size: 36px;
+    }
+
+    &__link {
+      font-size: 12px;
+      padding: 8px 16px;
+      margin-top: 32px;
+    }
+  }
+
 }
