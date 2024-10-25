@@ -1,20 +1,18 @@
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   width: 100%;
   max-width: 1290rem;
-  margin: 285rem auto 236rem auto;
-  gap: 61rem;
-
-  &__spacer { aspect-ratio: 1290/595; } // spacer
+  margin: 285rem auto 150rem auto;
+  columns: 3;
+  column-gap: 61rem;
 
   &__img {
-    background-size: cover;
-    background-position: center;
     border: 1px solid var(--foreground);
+    height: auto;
+    width: 100%;
+    margin-bottom: 61rem;
   }
 
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+    columns: 2;
   }
 }
