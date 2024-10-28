@@ -1,3 +1,5 @@
+"use client";
+
 import style from "./style.module.scss";
 import Image from "next/image";
 import { motion, useInView, Variants } from "framer-motion";
@@ -17,19 +19,17 @@ export default function Gallery() {
 
 function GalleryItem({ img, index }: { img: string, index: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  
+
   const variants = {
     hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1, 
-      transition: {
-        duration: 0.5
-      }
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 }
     }
   };
 
   const isInView = useInView(ref, { 
-    once: false, 
+    once: true,
     amount: 0.7,
   });
 

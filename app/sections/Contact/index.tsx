@@ -1,17 +1,26 @@
+"use client";
+
 import Image from "next/image";
 import style from "./style.module.scss";
 import Facebook from "@/app/components/svg/Facebook";
 import Linkedin from "@/app/components/svg/Linkedin";
 import Instagram from "@/app/components/svg/Instagram";
+import { useRef } from "react";
+import { useTransform, useScroll, motion } from "framer-motion";
 
 export default function Contact() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  const titleY = useTransform(scrollYProgress, [0, 0.5], ["200rem", "0rem"]);
+  const textY = useTransform(scrollYProgress, [0, 0.5], ["100rem", "0rem"]);
+
   return (
-    <section className={style.contact}>
+    <section ref={containerRef} className={style.contact}>
       <Image className={style.contact__img} src="/img/hero.jpg" alt="" width={861} height={279} />
-      <h1 className={style.contact__title}>Contact</h1>
-      <p className={style.contact__text}>
+      <motion.h1 className={style.contact__title} style={{ y: titleY }}>Contact</motion.h1>
+      <motion.p className={style.contact__text} style={{ y: textY }}>
         Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
-      </p>
+      </motion.p>
       <div className={style.contact__follow}>
         Follow:
         <a href="https://www.facebook.com/marcin.michal.marszalek" target="_blank" rel="noreferrer">

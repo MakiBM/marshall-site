@@ -1,18 +1,41 @@
+"use client";
+
 import Image from "next/image";
 import Scroll from "@/app/components/svg/Scroll";
 import style from "./style.module.scss";
+import { useRef } from "react";
+import { useTransform, useMotionTemplate, useScroll, motion } from "framer-motion";
 
 export default function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
+  const titleY = useTransform(scrollYProgress, [0, 1], ["200rem", "0rem"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["100rem", "0rem"]);
+  const scrollY = useTransform(scrollYProgress, [0.5, 1], ["0", "90vh"]);
+  
+  const imgY = useTransform(scrollYProgress, [0.5, 1], ["0", "100vh"]);
+  const cp = (from: number, to: number) => useTransform(scrollYProgress, [0.5, 1], [100 / 16 * from, to]);
+  const clipPath = useMotionTemplate`polygon(
+    ${cp(4, 0)}% ${cp(4, 0)}%,
+    ${cp(12, 100)}% ${cp(4, 0)}%,
+    ${cp(12, 100)}% ${cp(8, 100)}%,
+    ${cp(4, 0)}% ${cp(8, 100)}%
+  )`;
+  
   return (
-    <section className={style.about}>
-      <Image className={style.about__img} src="/img/eyes.jpg" alt="" width={861} height={279} />
-      <h1 className={style.about__title}>About <br /> &nbsp;&nbsp; the artist</h1>
-      <p className={style.about__text}>
-      Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
-      </p>
-      <div className={style.about__scroll}>
+    <section ref={containerRef} className={style.about}>
+      <motion.div className={style.about__img} style={{ clipPath, y: imgY }}>
+        <Image src="/img/portrait.jpg" alt="" width={1728} height={1117} />
+      </motion.div>
+      <motion.h1 className={style.about__title} style={{ y: titleY }}>
+        About <br /> &nbsp;&nbsp; the artist
+      </motion.h1>
+      <motion.p className={style.about__text} style={{ y: textY }}>
+        Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
+      </motion.p>
+      <motion.div className={style.about__scroll} style={{ y: scrollY }}>
         <Scroll />
-      </div>
+      </motion.div>
     </section>
   )
 }
