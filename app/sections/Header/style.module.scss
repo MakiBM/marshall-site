@@ -37,6 +37,7 @@
   }
   
   &__burger {
+    position: relative;
     padding: 24rem;
     margin-right: -32rem;
   }
@@ -44,6 +45,45 @@
   &__burger svg {
     width: 22rem;
     height: 13rem;
+  }
+
+  &__menu {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    top: -16rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24rem;
+    padding: 112rem 24rem 40rem 24rem;
+    width: 230rem;
+    height: 50rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    font-family: var(--font-bellefair);
+    font-size: 16rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 16rem;
+    backdrop-filter: blur(30rem);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+
+    a {
+      opacity: .7;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+  }
+
+  &__burger:hover &__menu {
+    opacity: 1;
+    height: 150rem;
+    pointer-events: auto;
   }
 
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {

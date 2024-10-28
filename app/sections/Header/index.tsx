@@ -10,7 +10,15 @@ export default function Header() {
       <div className={style.header__title}> Marcin Michał Marszałek </div>
       <div className={style.header__actions}>
         <a href="/"> <Button>Buy on Etsy</Button> </a>
-        <a className={style.header__burger} href="/"> <Burger/> </a>
+        <span className={style.header__burger} href="/">
+          <Burger/>
+          <div className={style.header__menu}>
+            <a href="/">Home</a>
+            <a href="/">Gallery</a>
+            <a href="/">About</a>
+            <a href="/">Contact</a>
+          </div>
+        </span>
       </div>
     </header>
   )
