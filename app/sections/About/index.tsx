@@ -2,28 +2,32 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { useTransform, useMotionTemplate, useScroll, motion } from "framer-motion";
+import { useTransform, useMotionTemplate, useScroll, useMotionValueEvent, motion } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useStore } from "@/stores/store";
 import Scroll from "@/app/components/svg/Scroll";
 import style from "./style.module.scss";
-
 export default function About() {
   const isMobile = useMediaQuery("(max-aspect-ratio: 1/1) or (max-height: 768px)");
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const titleY = useTransform(scrollYProgress, [0, 1], ["200rem", "0rem"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["100rem", "0rem"]);
-  const scrollY = useTransform(scrollYProgress, [0.5, 1], ["0", "90vh"]);
-  const imgY = useTransform(scrollYProgress, [0.5, 1], ["0", "100vh"]);
-
-  const cp = (from: number, to: number) => useTransform(scrollYProgress, [0.5, 1], [100 / 16 * from, to]);
+  const titleY = useTransform(scrollYProgress, [0, 0.5], ["200rem", "0rem"]);
+  const textY = useTransform(scrollYProgress, [0, 0.5], ["100rem", "0rem"]);
+  const scrollY = useTransform(scrollYProgress, [0.35, 0.65], ["0", "80vh"]);
+  
+  const imgY = useTransform(scrollYProgress, [0.35, 0.65], ["0", "100vh"]);
+  const cp = (from: number, to: number) => useTransform(scrollYProgress, [0.35, 0.65], [100 / 16 * from, to]);
   const clipPath = useMotionTemplate`polygon(
     ${cp(4, 0)}% ${cp(4, 0)}%,
     ${cp(12, 100)}% ${cp(4, 0)}%,
     ${cp(12, 100)}% ${cp(8, 100)}%,
     ${cp(4, 0)}% ${cp(8, 100)}%
   )`;
+
+  useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
+    useStore.setState({ portraitInView: latest > 0.65 && latest < 0.975 });
+  })
   
   return (
     <section ref={containerRef} className={style.about}>
