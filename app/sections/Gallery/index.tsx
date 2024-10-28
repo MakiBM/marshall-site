@@ -19,19 +19,18 @@ function GalleryItem({ img, index }: { img: string, index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   
   const variants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0 },
     visible: { 
       opacity: 1, 
-      scale: 1,
       transition: {
-        duration: 0.3
+        duration: 0.5
       }
     }
   };
 
   const isInView = useInView(ref, { 
     once: false, 
-    amount: 0.2,
+    amount: 0.7,
   });
 
   return (
@@ -41,7 +40,7 @@ function GalleryItem({ img, index }: { img: string, index: number }) {
       variants={variants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      transition={{ delay: index * 0.1 }}
+      transition={{ delay: index * 0.2 }}
     >
       <Image 
         src={img}
