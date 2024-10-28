@@ -1,9 +1,10 @@
 "use client";
 
-import style from "./style.module.scss";
 import Image from "next/image";
-import { motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
+import { motion, useInView, Variants } from "framer-motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import style from "./style.module.scss";
 
 export default function Gallery() {
   const imgs: string[] = ['/img/gallery_1.jpg', '/img/gallery_2.jpg', '/img/gallery_3.jpg', '/img/gallery_1.jpg', '/img/gallery_2.jpg', '/img/gallery_3.jpg'];
@@ -18,11 +19,12 @@ export default function Gallery() {
 }
 
 function GalleryItem({ img, index }: { img: string, index: number }) {
+  const isMobile = useMediaQuery("(max-aspect-ratio: 1/1) or (max-height: 768px)");
   const ref = useRef<HTMLDivElement>(null);
 
   const variants: Variants = {
     hidden: {
-      opacity: 0
+      opacity: isMobile ? 1 : 0
     },
     visible: {
       opacity: 1,
@@ -30,13 +32,13 @@ function GalleryItem({ img, index }: { img: string, index: number }) {
     }
   };
 
-  const isInView = useInView(ref, { 
+  const isInView = useInView(ref, {
     once: true,
     amount: 0.2,
   });
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       className={style.gallery__img}
       variants={variants}

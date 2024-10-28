@@ -1,15 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import style from "./style.module.scss";
+import { useRef } from "react";
+import { useTransform, useScroll, motion } from "framer-motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Facebook from "@/app/components/svg/Facebook";
 import Linkedin from "@/app/components/svg/Linkedin";
 import Instagram from "@/app/components/svg/Instagram";
-import { useRef } from "react";
-import { useTransform, useScroll, motion } from "framer-motion";
+import style from "./style.module.scss";
 
 export default function Contact() {
+  const isMobile = useMediaQuery("(max-aspect-ratio: 1/1) or (max-height: 768px)");
   const containerRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
   const titleY = useTransform(scrollYProgress, [0, 0.5], ["200rem", "0rem"]);
   const textY = useTransform(scrollYProgress, [0, 0.5], ["100rem", "0rem"]);
@@ -17,8 +20,8 @@ export default function Contact() {
   return (
     <section ref={containerRef} className={style.contact}>
       <Image className={style.contact__img} src="/img/hero.jpg" alt="" width={861} height={279} />
-      <motion.h1 className={style.contact__title} style={{ y: titleY }}>Contact</motion.h1>
-      <motion.p className={style.contact__text} style={{ y: textY }}>
+      <motion.h1 className={style.contact__title} style={{ y: isMobile ? 0 : titleY }}>Contact</motion.h1>
+      <motion.p className={style.contact__text} style={{ y: isMobile ? 0 : textY }}>
         Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.
       </motion.p>
       <div className={style.contact__follow}>

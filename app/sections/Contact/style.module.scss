@@ -61,7 +61,7 @@
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
     display: flex;
     flex-direction: column;
-    max-width: calc(100% - 500rem);
+    max-width: clamp(300px, calc(100% - 500rem), 430px);
     min-height: calc(100vh - 600rem);
     padding-top: 300rem;
     padding-bottom: 300rem;

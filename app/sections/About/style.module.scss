@@ -12,7 +12,7 @@
     position: relative;
     z-index: 1;
     grid-area: 1 / 1 / span 16 / span 16;
-    clip-path: polygon(calc(100% / 16 * 4) calc(100% / 16 * 4), calc(100% / 16 * 12) calc(100% / 16 * 4), calc(100% / 16 * 12) calc(100% / 16 * 8), calc(100% / 16 * 4) calc(100% / 16 * 8));
+    // clip-path: polygon(calc(100% / 16 * 4) calc(100% / 16 * 4), calc(100% / 16 * 12) calc(100% / 16 * 4), calc(100% / 16 * 12) calc(100% / 16 * 8), calc(100% / 16 * 4) calc(100% / 16 * 8));
     
     img {
       width: 100%;
@@ -54,9 +54,10 @@
   @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
     display: flex;
     flex-direction: column;
-    max-width: calc(100% - 500rem);
+    max-width: clamp(300px, calc(100% - 500rem), 430px);
     min-height: calc(100vh - 600rem);
     padding-top: 300rem;
+    margin-bottom: 0;
 
     &__img {
       width: calc(100% + 500rem);

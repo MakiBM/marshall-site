@@ -98,6 +98,7 @@
     &__image {
       order: 3;
       margin-bottom: auto;
+      max-width: 430px;
 
       img {
         height: auto;
@@ -106,8 +107,11 @@
 
     &__scroll {
       order: 4;
-      transform: none;
-      padding: 50px 0 5vh 0;
+
+      div {
+        transform: none;
+        padding: 50px 0 5vh 0;
+      }
     }
   
     &__scroll svg {
