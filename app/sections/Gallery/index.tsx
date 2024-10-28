@@ -20,17 +20,19 @@ export default function Gallery() {
 function GalleryItem({ img, index }: { img: string, index: number }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const variants = {
-    hidden: { opacity: 0 },
+  const variants: Variants = {
+    hidden: {
+      opacity: 0
+    },
     visible: {
       opacity: 1,
-      transition: { duration: 0.5 }
+      transition: { duration: 0.7 }
     }
   };
 
   const isInView = useInView(ref, { 
     once: true,
-    amount: 0.7,
+    amount: 0.2,
   });
 
   return (
