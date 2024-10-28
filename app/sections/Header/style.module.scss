@@ -66,7 +66,7 @@
     text-transform: uppercase;
     text-align: center;
     border-radius: 16rem;
-    backdrop-filter: blur(30rem);
+    backdrop-filter: blur(30px);
     transition: all 0.3s ease-in-out;
     pointer-events: none;
 
@@ -107,6 +107,21 @@
     &__burger svg {
       width: 22px;
       height: 13px;
+    }
+
+    &__menu {
+      top: -8px;
+      right: 6px;
+      gap: 24px;
+      padding: 112px 12px 40px 12px;
+      width: 208px;
+      height: 50px;
+      font-size: 16px;
+      border-radius: 16px;
+    }
+
+    &__burger:hover &__menu {
+      height: 150px;
     }
   }
 }
