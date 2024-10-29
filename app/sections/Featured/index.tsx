@@ -9,15 +9,15 @@ export default function Featured() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
-  const image1Y = useTransform(scrollYProgress, [0, 1], ["0rem", "300rem"]);
-  const title1Y = useTransform(scrollYProgress, [0, 1], ["-200rem", "800rem"]);
-  const image2Y = useTransform(scrollYProgress, [0, 1], ["0rem", "500rem"]);
-  const title2Y = useTransform(scrollYProgress, [0, 1], ["-100rem", "1000rem"]);
+  const image1Y = useTransform(scrollYProgress, [0, 1], ["-150rem", "300rem"]);
+  const title1Y = useTransform(scrollYProgress, [0, 1], ["-200rem", "400rem"]);
+  const image2Y = useTransform(scrollYProgress, [0, 1], ["250rem", "-500rem"]);
+  const title2Y = useTransform(scrollYProgress, [0, 1], ["-100rem", "500rem"]);
   const image3Y = useTransform(scrollYProgress, [0, 1], ["0rem", "100rem"]);
   const title3Y = useTransform(scrollYProgress, [0, 1], ["-300rem", "300rem"]);
 
   return (
-    <section ref={containerRef} className={style.featured}>
+    <section id="featured" ref={containerRef} className={style.featured}>
       <motion.div className={`${style.featured__img} ${style.featured__img_1}`} style={{ y: isMobile ? 0 : image1Y }}>
         <Image
           src="/img/gallery_1.jpg"

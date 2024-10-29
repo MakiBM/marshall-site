@@ -10,7 +10,7 @@ export default function Gallery() {
   const imgs: string[] = ['/img/gallery_1.jpg', '/img/gallery_2.jpg', '/img/gallery_3.jpg', '/img/gallery_1.jpg', '/img/gallery_2.jpg', '/img/gallery_3.jpg'];
 
   return (
-    <section className={style.gallery}>
+    <section id="gallery" className={style.gallery}>
       {imgs.map((img, i) => (
         <GalleryItem key={i} img={img} index={i} />
       ))}

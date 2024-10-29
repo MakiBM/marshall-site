@@ -31,7 +31,7 @@ export default function Hero() {
   const defaults = {opacity: 1, y: 0};
 
   return (
-    <section ref={containerRef} className={style.hero}>
+    <section id="home" ref={containerRef} className={style.hero}>
       <motion.div className={style.hero__image} style={isMobile ? defaults : { y: imageY, opacity: imageOpacity }}>
         <Image ref={imageRef} src="/img/hero.jpg" alt="hero image" width={866} height={560} />
       </motion.div>

@@ -18,7 +18,7 @@ export default function Contact() {
   const textY = useTransform(scrollYProgress, [0, 0.5], ["100rem", "0rem"]);
 
   return (
-    <section ref={containerRef} className={style.contact}>
+    <section id="contact" ref={containerRef} className={style.contact}>
       <Image className={style.contact__img} src="/img/hero.jpg" alt="" width={861} height={279} />
       <motion.h1 className={style.contact__title} style={{ y: isMobile ? 0 : titleY }}>Contact</motion.h1>
       <motion.p className={style.contact__text} style={{ y: isMobile ? 0 : textY }}>

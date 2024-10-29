@@ -30,7 +30,7 @@ export default function About() {
   })
   
   return (
-    <section ref={containerRef} className={style.about}>
+    <section id="about" ref={containerRef} className={style.about}>
       {isMobile ? (
         <div className={style.about__img}>
           <Image src="/img/eyes.jpg" alt="" width={861} height={279} />
