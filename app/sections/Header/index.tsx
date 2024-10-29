@@ -1,12 +1,12 @@
 "use client";
 
 import LocomotiveScroll from 'locomotive-scroll';
+import { useEffect, useRef } from 'react';
 import { useStore } from "@/stores/store";
 import Button from "@/app/components/Button";
 import Logo from "@/app/components/svg/Logo";
 import Burger from "@/app/components/svg/Burger";
 import style from "./style.module.scss";
-import { useEffect, useRef } from 'react';
 
 export default function Header() {
   const { portraitInView } = useStore();

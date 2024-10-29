@@ -1,0 +1,119 @@
+.details {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  width: 100%;
+  max-width: 1728rem;
+  aspect-ratio: 1728/1117;
+  margin: 0 auto;
+
+  &__back {
+    grid-area: 5 / 2 / span 1 / span 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16rem;
+    font-family: var(--font-bellefair);
+    font-size: 12rem;
+    text-transform: uppercase;
+  }
+
+  &__img {
+    grid-area: 5 / 9 / span 8 / span 6;
+
+    img {
+      width: 100%;
+      height: auto;
+      border: 1rem solid var(--foreground);
+    }
+  }
+
+  &__contents {
+    grid-area: 6 / 5 / span 4 / span 3;
+  }
+
+  &__title {
+    font-size: 64rem;
+    font-family: var(--font-bellefair);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  &__tag {
+    margin-top: 56rem;
+
+    span {
+      font-size: 12rem;
+      border-radius: 999rem;
+      padding: 8rem 16rem;
+      border: 1rem solid var(--foreground);
+    }
+  }
+
+  &__text {
+    margin-top: 80rem;
+    font-size: 16rem;
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+
+  &__nav {
+    grid-area: 15 / 3 / span 1 / span 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    a {
+      padding: 16rem;
+    }
+  }
+
+
+  @media (max-aspect-ratio: 1/1) or (max-height: 768px) {
+    display: flex;
+    flex-direction: column;
+    max-width: clamp(300px, calc(100% - 500rem), 430px);
+    padding: 150px 0;
+    align-items: flex-start;
+
+
+    &__back {
+      display: inline-flex;
+      gap: 16px;
+      font-size: 12px;
+    }
+
+    &__img {
+      margin: 90px 0 50px 0;
+    }
+  
+    &__title {
+      font-size: 36px;
+    }
+  
+    &__tag {
+      margin-top: 56px;
+  
+      span {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+    }
+  
+    &__text {
+      margin-top: 80px;
+      font-size: 16px;
+    }
+  
+    &__nav {
+      display: flex;
+      margin-top: 90px;
+      gap: 16px;
+      
+      a {
+        padding: 16px 0;
+      }
+    }
+  }
+}
