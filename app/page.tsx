@@ -1,7 +1,7 @@
 "use client";
 
+import LocomotiveScroll from "locomotive-scroll";
 import { useEffect } from "react";
-import LocomotiveScroll from 'locomotive-scroll';
 import Header from "./sections/Header";
 import Hero from "./sections/Hero";
 import Featured from "./sections/Featured";
